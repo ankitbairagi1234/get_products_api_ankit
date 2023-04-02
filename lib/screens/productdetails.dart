@@ -56,6 +56,29 @@ class _ProductdetailsState extends State<Productdetails> {
             )
           ],
         ),
+        bottomSheet:  Card(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40)),
+          elevation: 20,
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40)),
+            contentPadding: EdgeInsets.symmetric(vertical: 5),
+            tileColor: Colors.indigoAccent,
+            title: Padding(
+              padding: const EdgeInsets.only(left: 140.0),
+              child: Row(
+                children: [
+                  Icon(Icons.shopping_cart,color: Colors.white,),
+                  Text(
+                    'Add To Cart',
+                    style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -164,7 +187,7 @@ class _ProductdetailsState extends State<Productdetails> {
               SizedBox(height: 20,),
 
               Container(
-                height: 290,
+                height: 270,
                 width: double.infinity,
                 child: ListView.builder(
                   shrinkWrap: true,
@@ -172,7 +195,7 @@ class _ProductdetailsState extends State<Productdetails> {
                   itemCount: similarProducts?.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      width: 220,
+                      width: 200,
                       child: Card(
                         margin: EdgeInsets.all(5),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -183,7 +206,7 @@ class _ProductdetailsState extends State<Productdetails> {
                           children: [
                             Center(
                               child: Image.network(
-                                  "${similarProducts![index].image}",height: 150,),
+                                  "${similarProducts![index].image}",height: 105,),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -193,7 +216,6 @@ class _ProductdetailsState extends State<Productdetails> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text("\$${similarProducts![index].price}",style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold )),
                             )
-
                           ],
                         ),
                       ),
@@ -203,27 +225,6 @@ class _ProductdetailsState extends State<Productdetails> {
                 ),
               ),
               SizedBox(height: 60,),
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)),
-                elevation: 20,
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40)),
-                  contentPadding: EdgeInsets.symmetric(vertical: 5),
-                  tileColor: Colors.indigoAccent,
-                  title: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Center(
-                      child: Text(
-                        'Add To Cart',
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20,),
             ],
           ),
         ),
